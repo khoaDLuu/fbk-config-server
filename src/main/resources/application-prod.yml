@@ -1,0 +1,20 @@
+server:
+  port: {$PORT}
+
+spring:
+  application:
+    name: fbk-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: {$CONFIG_REPO}
+          default-label: main
+          clone-on-start: true
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: {$SERVICE_DISCOVERER_URL}
