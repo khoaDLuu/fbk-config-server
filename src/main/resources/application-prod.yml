@@ -1,5 +1,5 @@
 server:
-  port: {$PORT}
+  port: ${PORT}
 
 spring:
   application:
@@ -8,13 +8,13 @@ spring:
     config:
       server:
         git:
-          uri: {$CONFIG_REPO}
+          uri: https://github.com/khoaDLuu/fbk-cloud-config.git
           default-label: main
           clone-on-start: true
 
-eureka:
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: {$SERVICE_DISCOVERER_URL}
+eureka.client:
+  registerWithEureka: true
+  fetchRegistry: true
+  registryFetchIntervalSeconds: 60
+  region: default
+  serviceUrl.defaultZone: ${SERVICE_DISCOVERER_URL}/eureka/
